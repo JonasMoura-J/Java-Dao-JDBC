@@ -6,14 +6,14 @@ import model.entities.Vendedor;
 
 public interface VendedorDao {
 		
-		public void insert(Vendedor obj);
+		void insert(Vendedor obj);
 		
-		public void update(Vendedor obj);
+		void update(Vendedor obj);
 		
-		public void deleteByID(Integer id);
+		void deleteByID(Integer id);
 		
-		public Vendedor findById(Integer id);
+		Vendedor findById(Integer id);
 		
-		public List<Vendedor> findAll();
+		List<Vendedor> findAll();
 
 }

@@ -6,13 +6,13 @@ import model.entities.Departamento;
 
 public interface DepartamentoDao {
 	
-	public void insert(Departamento obj);
+	void insert(Departamento obj);
 	
-	public void update(Departamento obj);
+	void update(Departamento obj);
 	
-	public void deleteByID(Integer id);
+	void deleteByID(Integer id);
 	
-	public Departamento findById(Integer id);
+	Departamento findById(Integer id);
 	
-	public List<Departamento> findAll();
+	List<Departamento> findAll();
 }
