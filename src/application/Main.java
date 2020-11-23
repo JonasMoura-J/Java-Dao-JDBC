@@ -38,20 +38,26 @@ public class Main {
 		}
 		
 		
-		System.out.println("\n===Test 4: Vendedor Vendedor insert ===");
-		
-		Vendedor vendedor = new Vendedor(null, "Jonas", "JonasMoura@gmail.com", new Date(), 4000.0, dep);
-		
-		vd.insert(vendedor);
-		
-		System.out.println("Inserido! novo id = " + vendedor.getId());
+//		System.out.println("\n===Test 4: Vendedor Vendedor insert ===");
+//		
+//		Vendedor vendedor = new Vendedor(null, "Jonas", "JonasMoura@gmail.com", new Date(), 4000.0, dep);
+//		
+//		vd.insert(vendedor);
+//		
+//		System.out.println("Inserido! novo id = " + vendedor.getId());
 		
 		
 		System.out.println("\n===Test 5: Vendedor Vendedor Update ===");
-		vendedor = vd.findById(1);
+		Vendedor vendedor = vd.findById(1);
 		vendedor.setNome("Gabriel");
 		vd.update(vendedor);
 		System.out.println("Atualizado com sucesso!");
+		
+		System.out.println("\n===Test 6: Vendedor Vendedor Delete ===");
+		
+		vd.deleteByID(8);
+		
+		System.out.println("Vendedor deletado com sucesso!");
 	}
 
 }
