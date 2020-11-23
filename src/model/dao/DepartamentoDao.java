@@ -15,4 +15,5 @@ public interface DepartamentoDao {
 	Departamento findById(Integer id);
 	
 	List<Departamento> findAll();
+	
 }

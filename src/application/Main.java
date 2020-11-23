@@ -27,6 +27,14 @@ public class Main {
 		for(Vendedor v : list) {
 			System.out.println(v);
 		}
+		
+		System.out.println("\n===Test 3: Vendedor findAll ===");
+		
+		list = vd.findAll();
+		
+		for(Vendedor v : list) {
+			System.out.println(v);
+		}
 	}
 
 }
