@@ -6,15 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import db.DB;
 import db.DbException;
 import model.dao.DepartamentoDao;
 import model.entities.Departamento;
-import model.entities.Vendedor;
 
 public class DepartamentoDaoJDBC implements DepartamentoDao{
 	
@@ -60,8 +57,28 @@ public class DepartamentoDaoJDBC implements DepartamentoDao{
 
 	@Override
 	public void update(Departamento obj) {
-		// TODO Auto-generated method stub
+		PreparedStatement st = null;
 		
+		try {
+			
+			st = conn.prepareStatement("UPDATE department " + 
+					"SET Name = ?" + 
+					"WHERE Id = ?");
+			
+			st.setString(1, obj.getNome());
+			st.setInt(2, obj.getId());
+			
+			st.executeUpdate();
+			
+		}catch(SQLException e) {
+			throw new DbException(e.getMessage());
+			
+		}catch(NullPointerException e) {
+			throw new DbException("Id não encontrado");
+		}
+		finally {
+			DB.closeStatement(st);
+		}
 	}
 
 	@Override
@@ -72,8 +89,29 @@ public class DepartamentoDaoJDBC implements DepartamentoDao{
 
 	@Override
 	public Departamento findById(Integer id) {
-		// TODO Auto-generated method stub
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		
+		try {
+			
+			st = conn.prepareStatement("SELECT * FROM department WHERE department.Id = ?");
+			st.setInt(1, id);
+			rs = st.executeQuery();
+			
+			if(rs.next()) {
+				Departamento dep = InstanceDepartamento(rs);
+				
+				return dep;
+			}
+		}catch(SQLException e) {
+			throw new DbException(e.getMessage());
+		}finally {
+			DB.closeStatement(st);
+			DB.closeResultSet(rs);
+		}
+		
 		return null;
+		
 	}
 
 	@Override
@@ -101,5 +139,12 @@ public class DepartamentoDaoJDBC implements DepartamentoDao{
 			DB.closeStatement(st);
 			DB.closeResultSet(rs);
 		}
+	}
+	
+	private Departamento InstanceDepartamento(ResultSet rs) throws SQLException {
+		Departamento dep = new Departamento();
+		dep.setId(rs.getInt("Id"));
+		dep.setNome(rs.getString("Name"));
+		return dep;
 	}
 }
