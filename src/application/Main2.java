@@ -35,6 +35,10 @@ public class Main2 {
 		departamentoDao.update(dep);
 		System.out.println("Atualizado com sucesso!");
 		
+		System.out.println("\n===Test 6: Vendedor Delete ===");
+		departamentoDao.deleteByID(6);
+		System.out.println("Departamento deletado com sucesso!");
+		
 	}
 
 }

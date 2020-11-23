@@ -47,13 +47,13 @@ public class Main {
 //		System.out.println("Inserido! novo id = " + vendedor.getId());
 		
 		
-		System.out.println("\n===Test 5: Vendedor Vendedor Update ===");
+		System.out.println("\n===Test 5: Vendedor Update ===");
 		Vendedor vendedor = vd.findById(1);
 		vendedor.setNome("Gabriel");
 		vd.update(vendedor);
 		System.out.println("Atualizado com sucesso!");
 		
-		System.out.println("\n===Test 6: Vendedor Vendedor Delete ===");
+		System.out.println("\n===Test 6: Vendedor Delete ===");
 		
 		vd.deleteByID(8);
 		
