@@ -45,6 +45,13 @@ public class Main {
 		vd.insert(vendedor);
 		
 		System.out.println("Inserido! novo id = " + vendedor.getId());
+		
+		
+		System.out.println("\n===Test 5: Vendedor Vendedor Update ===");
+		vendedor = vd.findById(1);
+		vendedor.setNome("Gabriel");
+		vd.update(vendedor);
+		System.out.println("Atualizado com sucesso!");
 	}
 
 }
