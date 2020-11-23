@@ -158,7 +158,7 @@ public class VendedorDaoJDBC implements VendedorDao{
 	private Departamento InstanceDepartamento(ResultSet rs) throws SQLException {
 		Departamento dep =new Departamento();
 		dep.setId(rs.getInt("DepartmentId"));
-		dep.setName(rs.getString("DepName"));
+		dep.setNome(rs.getString("DepName"));
 		return dep;
 	}
 
