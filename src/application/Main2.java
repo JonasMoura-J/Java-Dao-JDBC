@@ -19,15 +19,15 @@ public class Main2 {
 			System.out.println(d);
 		}
 		
-//		System.out.println("\n===Test 2: Departamento insert ===");
+		System.out.println("\n===Test 2: Departamento findById ===");
+		Departamento dep = departamentoDao.findById(3);
+		System.out.println(dep);
+		
+//		System.out.println("\n===Test 3: Departamento insert ===");
 //		Departamento dep = new Departamento(null, "Esporte");
 //		
 //		dd.insert(dep);
 //		System.out.println("Inserido! novo id = " + dep.getId());
-		
-		System.out.println("\n===Test 3: Departamento findById ===");
-		Departamento dep = departamentoDao.findById(3);
-		System.out.println(dep);
 		
 		System.out.println("\n===Test 4: Departamento Update ===");
 		dep = departamentoDao.findById(1);
@@ -35,10 +35,9 @@ public class Main2 {
 		departamentoDao.update(dep);
 		System.out.println("Atualizado com sucesso!");
 		
-		System.out.println("\n===Test 6: Vendedor Delete ===");
+		System.out.println("\n===Test 5: Departamento Delete ===");
 		departamentoDao.deleteByID(6);
 		System.out.println("Departamento deletado com sucesso!");
-		
 	}
 
 }
